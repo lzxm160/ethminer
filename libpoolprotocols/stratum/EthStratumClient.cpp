@@ -1615,6 +1615,7 @@ void EthStratumClient::submitSolution(const Solution& solution)
         jReq["params"].append(toHex(solution.nonce, HexPrefix::Add));
         jReq["params"].append(solution.work.header.hex(HexPrefix::Add));
         jReq["params"].append(solution.mixHash.hex(HexPrefix::Add));
+        jReq["params"].append("0xtestSTRATUM");
         if (!m_conn->Workername().empty())
             jReq["worker"] = m_conn->Workername();
 
@@ -1626,6 +1627,7 @@ void EthStratumClient::submitSolution(const Solution& solution)
         jReq["params"].append(toHex(solution.nonce, HexPrefix::Add));
         jReq["params"].append(solution.work.header.hex(HexPrefix::Add));
         jReq["params"].append(solution.mixHash.hex(HexPrefix::Add));
+        jReq["params"].append("0xtestETHPROXY");
         if (!m_conn->Workername().empty())
             jReq["worker"] = m_conn->Workername();
 
