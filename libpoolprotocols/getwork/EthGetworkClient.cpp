@@ -369,7 +369,8 @@ void EthGetworkClient::handle_resolve(
 
 void EthGetworkClient::processResponse(Json::Value& JRes) 
 {
-    std::cout << "EthGetworkClient::processResponse" << std::string(Json::writeString(m_jSwBuilder, JRes)) << std::endl;
+    cwarn << "EthGetworkClient::processResponse"
+          << std::string(Json::writeString(m_jSwBuilder, JRes));
     unsigned _id = 0;  // This SHOULD be the same id as the request it is responding to 
     bool _isSuccess = false;  // Whether or not this is a succesful or failed response
     string _errReason = "";   // Content of the error reason
@@ -419,8 +420,8 @@ void EthGetworkClient::processResponse(Json::Value& JRes)
             {
                 Json::Value JPrm = JRes.get("result", Json::Value::null);
                 WorkPackage newWp;
-                std::cout << "EthGetworkClient::processResponse Json::Value JPrm"
-                      << std::string(Json::writeString(m_jSwBuilder, JPrm)) << std::endl;
+                cwarn << "EthGetworkClient::processResponse Json::Value JPrm"
+                      << std::string(Json::writeString(m_jSwBuilder, JPrm));
                 newWp.header = h256(JPrm.get(Json::Value::ArrayIndex(0), "").asString());
                 newWp.seed = h256(JPrm.get(Json::Value::ArrayIndex(1), "").asString());
                 newWp.boundary = h256(JPrm.get(Json::Value::ArrayIndex(2), "").asString());
@@ -507,8 +508,7 @@ std::string EthGetworkClient::processError(Json::Value& JRes)
 
 void EthGetworkClient::send(Json::Value const& jReq)
 {
-    std::cout << "EthGetworkClient::send" << std::string(Json::writeString(m_jSwBuilder, jReq))
-              << std::endl;
+    cwarn << "EthGetworkClient::send" << std::string(Json::writeString(m_jSwBuilder, jReq));
     send(std::string(Json::writeString(m_jSwBuilder, jReq)));
 }
 
