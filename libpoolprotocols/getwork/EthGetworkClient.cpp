@@ -369,7 +369,7 @@ void EthGetworkClient::handle_resolve(
 
 void EthGetworkClient::processResponse(Json::Value& JRes) 
 {
-    std:: << "EthGetworkClient::processResponse" << std::string(Json::writeString(m_jSwBuilder, JRes))
+    std::cout << "EthGetworkClient::processResponse" << std::string(Json::writeString(m_jSwBuilder, JRes))
           << std::endl
     unsigned _id = 0;  // This SHOULD be the same id as the request it is responding to 
     bool _isSuccess = false;  // Whether or not this is a succesful or failed response
@@ -509,7 +509,8 @@ std::string EthGetworkClient::processError(Json::Value& JRes)
 
 void EthGetworkClient::send(Json::Value const& jReq)
 {
-    std:: <<"EthGetworkClient::send"<< std::string(Json::writeString(m_jSwBuilder, jReq))<<std::endl
+    std::cout << "EthGetworkClient::send" << std::string(Json::writeString(m_jSwBuilder, jReq))
+              << std::endl
     send(std::string(Json::writeString(m_jSwBuilder, jReq)));
 }
 
