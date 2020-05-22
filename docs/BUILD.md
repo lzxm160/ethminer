@@ -135,7 +135,7 @@ pause
 Pass these options to CMake configuration command, e.g.
 
 ```shell
-cmake .. -DETHASHCUDA=ON -DETHASHCL=OFF
+cmake .. -DETHASHCUDA=OFF -DETHASHCL=OFF -DETHASHCPU=ON
 ```
 
 * `-DETHASHCL=ON` - enable OpenCL mining, `ON` by default.
