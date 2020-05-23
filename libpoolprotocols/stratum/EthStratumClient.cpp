@@ -1719,6 +1719,7 @@ void EthStratumClient::onRecvSocketDataCompleted(
 
                 if (!line.empty())
                 {
+                    std::cout << "EthStratumClient::onRecvSocketDataCompleted" << line << std::endl;
                     // Out received message only for debug purpouses
                     if (g_logOptions & LOG_JSON)
                         cnote << " << " << line;
@@ -1813,6 +1814,7 @@ void EthStratumClient::sendSocketData()
     std::ostream os(&m_sendBuffer);
     while (m_txQueue.pop(line))
     {
+        std::cout << "EthStratumClient::sendSocketData()" << *line << std::endl;
         os << *line << std::endl;
         // Out received message only for debug purpouses
         if (g_logOptions & LOG_JSON)
